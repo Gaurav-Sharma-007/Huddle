@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Briefcase, Play, Tv, Users, Zap } from "lucide-react";
 import Link from "next/link";
@@ -10,8 +11,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden relative">
       {/* Background Gradients */}
-      {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <StarField />
         <motion.div
           animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -115,5 +116,40 @@ export default function Home() {
         </div>
       </main>
     </div>
+  );
+}
+
+function StarField() {
+  const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; delay: number }[]>([]);
+
+  useEffect(() => {
+    const newStars = Array.from({ length: 75 }).map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 2 + 1,
+      delay: Math.random() * 5,
+    }));
+    setStars(newStars);
+  }, []);
+
+  return (
+    <>
+      {stars.map((star) => (
+        <motion.div
+          key={star.id}
+          className="absolute rounded-full bg-white"
+          style={{
+            left: `${star.x}%`,
+            top: `${star.y}%`,
+            width: star.size,
+            height: star.size,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.1, 0.8, 0.1], scale: [1, 1.5, 1] }}
+          transition={{ duration: 4, repeat: Infinity, delay: star.delay, ease: "easeInOut" }}
+        />
+      ))}
+    </>
   );
 }
