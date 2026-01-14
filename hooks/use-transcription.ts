@@ -12,6 +12,7 @@ export function useTranscription(username: string) {
     const [transcript, setTranscript] = useState<TranscriptLine[]>([]);
     const [isListening, setIsListening] = useState(false);
     const recognitionRef = useRef<any>(null);
+    const isListeningRef = useRef(false); // Ref for sync access
 
     useEffect(() => {
         if (typeof window !== 'undefined' && (window as any).webkitSpeechRecognition) {
@@ -37,6 +38,16 @@ export function useTranscription(username: string) {
 
             recognition.onerror = (event: any) => {
                 console.error("Speech recognition error", event.error);
+                if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                    isListeningRef.current = false;
+                    setIsListening(false);
+                }
+            };
+
+            recognition.onend = () => {
+                // Sync state when it stops (e.g. timeout or manual stop)
+                isListeningRef.current = false;
+                setIsListening(false);
             };
 
             recognitionRef.current = recognition;
@@ -62,17 +73,24 @@ export function useTranscription(username: string) {
     };
 
     const startListening = () => {
-        if (recognitionRef.current) {
+        if (recognitionRef.current && !isListeningRef.current) {
             try {
                 recognitionRef.current.start();
+                isListeningRef.current = true;
                 setIsListening(true);
-            } catch (e) { console.error(e) }
+            } catch (e) {
+                console.error("Start listening error:", e);
+                // If it says already started, we can just sync our state
+                isListeningRef.current = true;
+                setIsListening(true);
+            }
         }
     };
 
     const stopListening = () => {
         if (recognitionRef.current) {
             recognitionRef.current.stop();
+            isListeningRef.current = false;
             setIsListening(false);
         }
     };

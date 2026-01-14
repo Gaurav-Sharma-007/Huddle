@@ -120,6 +120,8 @@ function RoomClientContent({ room, username }: { room: string, username: string 
                 <RoomAudioRenderer />
             </LiveKitRoom>
 
+            <RoomInfoOverlay room={room} />
+
             <MeetingSummaryModal
                 isOpen={showSummary}
                 onClose={() => router.push("/dashboard")}
@@ -150,8 +152,45 @@ function SimpleParticipantBar() {
     return (
         <div className="flex gap-2 h-full overflow-x-auto">
             {tracks.map((track) => (
-                <ParticipantTile key={track.participant.identity} trackRef={track} className="w-48 h-full aspect-video" />
+                <ParticipantTile
+                    // Use trackSid if available, otherwise fallback to identity + source for uniqueness
+                    key={track.publication?.trackSid || `${track.participant.identity}-${track.source}`}
+                    trackRef={track}
+                    className="w-48 h-full aspect-video"
+                />
             ))}
         </div>
     )
+}
+
+import { Copy, Check } from "lucide-react";
+
+function RoomInfoOverlay({ room }: { room: string }) {
+    const [copied, setCopied] = useState(false);
+
+    const copyLink = () => {
+        const url = `${window.location.origin}/room/${room}`;
+        navigator.clipboard.writeText(url);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    return (
+        <div className="fixed top-4 left-4 z-[50] glass-panel p-2 rounded-lg flex items-center gap-3 shadow-lg border border-white/10 bg-black/40 backdrop-blur-md text-white">
+            <div className="flex flex-col">
+                <span className="text-[10px] uppercase text-white/50 font-bold tracking-wider">Room Code</span>
+                <span className="font-mono font-bold text-sm">{room}</span>
+            </div>
+            <div className="h-8 w-px bg-white/10 mx-1"></div>
+            <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 px-2 text-white hover:bg-white/10 hover:text-white"
+                onClick={copyLink}
+            >
+                {copied ? <Check className="h-4 w-4 mr-2 text-green-400" /> : <Copy className="h-4 w-4 mr-2" />}
+                {copied ? "Copied" : "Copy Link"}
+            </Button>
+        </div>
+    );
 }
