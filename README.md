@@ -1,4 +1,4 @@
-# WatchParty - Work & Play 🎥✨
+# Huddle - Work & Play 🎥✨
 
 **WatchParty** is a premium, dual-mode web application designed for both professional collaboration and social entertainment. Built with the latest web technologies, it offers a seamless experience whether you're closing a deal or watching a movie with friends.
 
