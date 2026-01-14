@@ -1,6 +1,7 @@
 "use client";
 
 import { Video, Home, Settings, LogOut, Clapperboard, MonitorPlay } from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -48,7 +49,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 overflow-y-auto relative">
+            <motion.main
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4 }}
+                className="flex-1 overflow-y-auto relative"
+            >
                 {/* Mobile Header Placeholder */}
                 <header className="md:hidden flex items-center p-4 border-b bg-card gap-2">
                     <img src="/logo.png" alt="Huddle Logo" className="w-10 h-10 object-contain" />
@@ -56,7 +62,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <div className="p-6 md:p-8 max-w-7xl mx-auto">
                     {children}
                 </div>
-            </main>
+            </motion.main>
         </div>
     );
 }
