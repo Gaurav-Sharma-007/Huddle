@@ -15,11 +15,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             {/* Sidebar - Desktop */}
             <aside className="w-64 border-r border-border bg-card/50 backdrop-blur-xl hidden md:flex flex-col">
                 <div className="p-6">
-                    <Link href="/" className="flex items-center gap-2">
-                        <div className="bg-gradient-to-tr from-indigo-500 to-purple-500 p-1.5 rounded-lg">
-                            <Video className="w-5 h-5 text-white" />
-                        </div>
-                        <span className="font-bold text-lg">WatchParty</span>
+                    <Link href="/" className="flex items-center justify-center p-2">
+                        <img src="/logo.png" alt="Huddle Logo" className="w-16 h-16 object-contain" />
                     </Link>
                 </div>
 
@@ -53,8 +50,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             {/* Main Content */}
             <main className="flex-1 overflow-y-auto relative">
                 {/* Mobile Header Placeholder */}
-                <header className="md:hidden flex items-center p-4 border-b bg-card">
-                    <span className="font-bold">WatchParty</span>
+                <header className="md:hidden flex items-center p-4 border-b bg-card gap-2">
+                    <img src="/logo.png" alt="Huddle Logo" className="w-10 h-10 object-contain" />
                 </header>
                 <div className="p-6 md:p-8 max-w-7xl mx-auto">
                     {children}

@@ -17,13 +17,8 @@ export default function Home() {
 
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto backdrop-blur-sm sticky top-0 z-50">
-        <div className="flex items-center gap-2">
-          <div className="bg-gradient-to-tr from-indigo-500 to-purple-500 p-2 rounded-lg">
-            <Tv className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500">
-            WatchParty
-          </span>
+        <div className="flex items-center">
+          <img src="/logo.png" alt="Huddle Logo" className="w-20 h-20 object-contain" />
         </div>
 
         <div className="flex items-center gap-6">
