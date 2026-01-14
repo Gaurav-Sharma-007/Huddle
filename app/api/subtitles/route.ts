@@ -1,15 +1,14 @@
-module.exports = async function (context, req) {
-    const query = req.query.query;
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function GET(request: NextRequest) {
+    const searchParams = request.nextUrl.searchParams;
+    const query = searchParams.get('query');
 
     // Simulate AI Agent processing delay
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     if (!query) {
-        context.res = {
-            status: 400,
-            body: { error: "Query required" }
-        };
-        return;
+        return NextResponse.json({ error: "Query required" }, { status: 400 });
     }
 
     // Mock Results
@@ -20,10 +19,8 @@ module.exports = async function (context, req) {
         { id: "4", filename: `${query}.french.srt`, lang: "fr", url: "#" },
     ];
 
-    context.res = {
-        body: {
-            subtitles: mockResults,
-            agentStatus: "Scanned 4 providers successfully."
-        }
-    };
-};
+    return NextResponse.json({
+        subtitles: mockResults,
+        agentStatus: "Scanned 4 providers successfully."
+    });
+}
