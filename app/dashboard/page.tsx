@@ -5,6 +5,7 @@ import { Copy, Monitor, PlayCircle, Plus, Users, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
+import { JoinRoomDialog } from "@/components/dashboard/join-room-dialog";
 
 function DashboardContent() {
     const searchParams = useSearchParams();
@@ -38,14 +39,18 @@ function DashboardContent() {
                     bg="bg-indigo-500/10"
                     onClick={handleCreateRoom}
                 />
-                <ActionCard
-                    title="Join Room"
-                    desc="Enter code or link"
-                    icon={Users}
-                    color="text-purple-500"
-                    bg="bg-purple-500/10"
-                    onClick={() => { }} // TODO: Add Dialog
-                />
+                <JoinRoomDialog>
+                    <div className="h-full"> {/* Wrapper to pass ref if needed, or just strict children */}
+                        <ActionCard
+                            title="Join Room"
+                            desc="Enter code or link"
+                            icon={Users}
+                            color="text-purple-500"
+                            bg="bg-purple-500/10"
+                            onClick={() => { }} // Logic handled by DialogTrigger
+                        />
+                    </div>
+                </JoinRoomDialog>
                 {mode === "play" && (
                     <ActionCard
                         title="Browse Media"

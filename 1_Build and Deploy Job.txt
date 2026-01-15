@@ -1,0 +1,361 @@
+﻿2026-01-15T05:52:06.5027727Z Current runner version: '2.330.0'
+2026-01-15T05:52:06.5081829Z ##[group]Runner Image Provisioner
+2026-01-15T05:52:06.5105570Z Hosted Compute Agent
+2026-01-15T05:52:06.5106574Z Version: 20251211.462
+2026-01-15T05:52:06.5107543Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2026-01-15T05:52:06.5108905Z Build Date: 2025-12-11T16:28:49Z
+2026-01-15T05:52:06.5110036Z Worker ID: {24e76b4e-973d-4ad6-8e72-a18eed9e1344}
+2026-01-15T05:52:06.5111329Z ##[endgroup]
+2026-01-15T05:52:06.5112389Z ##[group]Operating System
+2026-01-15T05:52:06.5113333Z Ubuntu
+2026-01-15T05:52:06.5114141Z 24.04.3
+2026-01-15T05:52:06.5115245Z LTS
+2026-01-15T05:52:06.5115966Z ##[endgroup]
+2026-01-15T05:52:06.5116818Z ##[group]Runner Image
+2026-01-15T05:52:06.5117760Z Image: ubuntu-24.04
+2026-01-15T05:52:06.5118683Z Version: 20260105.202.1
+2026-01-15T05:52:06.5120469Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260105.202/images/ubuntu/Ubuntu2404-Readme.md
+2026-01-15T05:52:06.5123218Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260105.202
+2026-01-15T05:52:06.5145341Z ##[endgroup]
+2026-01-15T05:52:06.5147257Z ##[group]GITHUB_TOKEN Permissions
+2026-01-15T05:52:06.5150022Z Contents: read
+2026-01-15T05:52:06.5150962Z Metadata: read
+2026-01-15T05:52:06.5151803Z ##[endgroup]
+2026-01-15T05:52:06.5155218Z Secret source: Actions
+2026-01-15T05:52:06.5156796Z Prepare workflow directory
+2026-01-15T05:52:06.5747764Z Prepare all required actions
+2026-01-15T05:52:06.5862627Z Getting action download info
+2026-01-15T05:52:07.0710078Z Download action repository 'actions/checkout@v3' (SHA:f43a0e5ff2bd294095638e18286ca9a3d1956744)
+2026-01-15T05:52:07.1940064Z Download action repository 'Azure/static-web-apps-deploy@v1' (SHA:4d27395796ac319302594769cfe812bd207490b1)
+2026-01-15T05:52:07.8133023Z Complete job name: Build and Deploy Job
+2026-01-15T05:52:07.8581488Z ##[group]Build container for action use: '/home/runner/work/_actions/Azure/static-web-apps-deploy/v1/Dockerfile'.
+2026-01-15T05:52:07.8637299Z ##[command]/usr/bin/docker build -t 4a52b7:3555bbbdf03e42cc84f7080b12d76dc3 -f "/home/runner/work/_actions/Azure/static-web-apps-deploy/v1/Dockerfile" "/home/runner/work/_actions/Azure/static-web-apps-deploy/v1"
+2026-01-15T05:52:08.4134610Z #0 building with "default" instance using docker driver
+2026-01-15T05:52:08.4137360Z 
+2026-01-15T05:52:08.4138652Z #1 [internal] load build definition from Dockerfile
+2026-01-15T05:52:08.4141005Z #1 transferring dockerfile: 160B done
+2026-01-15T05:52:08.4142853Z #1 DONE 0.0s
+2026-01-15T05:52:08.4144005Z 
+2026-01-15T05:52:08.4146365Z #2 [internal] load metadata for mcr.microsoft.com/appsvc/staticappsclient:stable
+2026-01-15T05:52:08.4148860Z #2 DONE 0.1s
+2026-01-15T05:52:08.5638430Z 
+2026-01-15T05:52:08.5662766Z #3 [internal] load .dockerignore
+2026-01-15T05:52:08.5666970Z #3 transferring context: 2B done
+2026-01-15T05:52:08.5671531Z #3 DONE 0.0s
+2026-01-15T05:52:08.5675340Z 
+2026-01-15T05:52:08.5677185Z #4 [internal] load build context
+2026-01-15T05:52:08.5681627Z #4 transferring context: 107B done
+2026-01-15T05:52:08.5683779Z #4 DONE 0.0s
+2026-01-15T05:52:08.5684837Z 
+2026-01-15T05:52:08.5687723Z #5 [1/2] FROM mcr.microsoft.com/appsvc/staticappsclient:stable@sha256:3178a283e885dc45a0c7b4c6e9f728f0331ae7fb93de75db4181fa38651170f2
+2026-01-15T05:52:08.5695327Z #5 resolve mcr.microsoft.com/appsvc/staticappsclient:stable@sha256:3178a283e885dc45a0c7b4c6e9f728f0331ae7fb93de75db4181fa38651170f2 done
+2026-01-15T05:52:08.5702316Z #5 sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 15.03MB / 53.74MB 0.1s
+2026-01-15T05:52:08.5707153Z #5 sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 9.44MB / 54.75MB 0.1s
+2026-01-15T05:52:08.5711388Z #5 sha256:3178a283e885dc45a0c7b4c6e9f728f0331ae7fb93de75db4181fa38651170f2 2.88kB / 2.88kB done
+2026-01-15T05:52:08.5716282Z #5 sha256:1df8e0748f30e89b0c0477edfc706fc39242e1d6008433c0494113de267e7ca8 15.34kB / 15.34kB done
+2026-01-15T05:52:08.5721625Z #5 sha256:2377065f3b700cf1b5e391d26c572c8b91892dd44acd75deebdab5e403b23175 10.49MB / 15.56MB 0.1s
+2026-01-15T05:52:08.7705086Z #5 sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 34.74MB / 53.74MB 0.2s
+2026-01-15T05:52:08.7709757Z #5 sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 30.41MB / 54.75MB 0.2s
+2026-01-15T05:52:08.7719028Z #5 sha256:2377065f3b700cf1b5e391d26c572c8b91892dd44acd75deebdab5e403b23175 15.56MB / 15.56MB 0.2s done
+2026-01-15T05:52:08.7723809Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 2.10MB / 197.07MB 0.2s
+2026-01-15T05:52:08.7728589Z #5 sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 53.74MB / 53.74MB 0.3s
+2026-01-15T05:52:08.7733195Z #5 sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 38.80MB / 54.75MB 0.3s
+2026-01-15T05:52:08.7747113Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 12.76MB / 197.07MB 0.3s
+2026-01-15T05:52:08.9407436Z #5 sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 53.74MB / 53.74MB 0.4s done
+2026-01-15T05:52:08.9415715Z #5 sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 54.75MB / 54.75MB 0.5s
+2026-01-15T05:52:08.9424143Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 44.95MB / 197.07MB 0.5s
+2026-01-15T05:52:08.9429569Z #5 extracting sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58
+2026-01-15T05:52:08.9433249Z #5 sha256:aede74d79976f9d1be608a1286cdb2ca61aad25185440263691db6a0880adadd 20.37MB / 24.46MB 0.5s
+2026-01-15T05:52:08.9437572Z #5 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.4s done
+2026-01-15T05:52:09.1418715Z #5 sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 54.75MB / 54.75MB 0.7s done
+2026-01-15T05:52:09.1427717Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 88.08MB / 197.07MB 0.7s
+2026-01-15T05:52:09.1432397Z #5 sha256:aede74d79976f9d1be608a1286cdb2ca61aad25185440263691db6a0880adadd 24.46MB / 24.46MB 0.7s done
+2026-01-15T05:52:09.1496126Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 0B / 72.99MB 0.7s
+2026-01-15T05:52:09.1500299Z #5 sha256:c279a6399750ee20e802fb2c47da034ccee5eb4f3b89087f32618f10e8af074a 1.56MB / 1.56MB 0.7s
+2026-01-15T05:52:09.2385412Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 107.20MB / 197.07MB 0.8s
+2026-01-15T05:52:09.2397244Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 14.86MB / 72.99MB 0.8s
+2026-01-15T05:52:09.2404562Z #5 sha256:c279a6399750ee20e802fb2c47da034ccee5eb4f3b89087f32618f10e8af074a 1.56MB / 1.56MB 0.7s done
+2026-01-15T05:52:09.2409123Z #5 sha256:351447e6e3829fac25a761f87d07dc5bfc289f38908901d05fa53aaab54dbdcd 115.52kB / 115.52kB 0.8s
+2026-01-15T05:52:09.4366225Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 141.56MB / 197.07MB 1.0s
+2026-01-15T05:52:09.4395030Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 53.48MB / 72.99MB 1.0s
+2026-01-15T05:52:09.4399350Z #5 sha256:351447e6e3829fac25a761f87d07dc5bfc289f38908901d05fa53aaab54dbdcd 115.52kB / 115.52kB 0.8s done
+2026-01-15T05:52:09.4403713Z #5 sha256:eec8099d3f58ba87e25216a07db18b5a0de40b6921ee61ea8ab9b4c29b53a12f 1.16MB / 1.16MB 0.9s done
+2026-01-15T05:52:09.4408312Z #5 sha256:cddc70a1cccef26d55fcf9242759c41404c305acea0b4c3a30961c99846a0a55 637.94kB / 637.94kB 0.9s done
+2026-01-15T05:52:09.4412747Z #5 sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 6.46MB / 35.20MB 1.0s
+2026-01-15T05:52:09.5543126Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 155.19MB / 197.07MB 1.1s
+2026-01-15T05:52:09.5547925Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 69.21MB / 72.99MB 1.1s
+2026-01-15T05:52:09.5552363Z #5 sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 22.02MB / 35.20MB 1.1s
+2026-01-15T05:52:09.7043432Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 72.99MB / 72.99MB 1.2s
+2026-01-15T05:52:09.7045600Z #5 sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 31.08MB / 35.20MB 1.2s
+2026-01-15T05:52:09.8355331Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 184.55MB / 197.07MB 1.4s
+2026-01-15T05:52:09.8357243Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 72.99MB / 72.99MB 1.2s done
+2026-01-15T05:52:09.8358894Z #5 sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 35.20MB / 35.20MB 1.4s done
+2026-01-15T05:52:09.8360480Z #5 sha256:4a1fde1690fe113870084a3224c66554fc9cbd2310abb9593b0244ec21f4b76d 0B / 168B 1.4s
+2026-01-15T05:52:09.8361956Z #5 sha256:8023cb51985fccd3faa4be6340cdc75b72240277850569aa974767dda5176159 0B / 168B 1.4s
+2026-01-15T05:52:09.9374788Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 196.12MB / 197.07MB 1.5s
+2026-01-15T05:52:09.9376212Z #5 sha256:4a1fde1690fe113870084a3224c66554fc9cbd2310abb9593b0244ec21f4b76d 168B / 168B 1.4s done
+2026-01-15T05:52:09.9377527Z #5 sha256:8023cb51985fccd3faa4be6340cdc75b72240277850569aa974767dda5176159 168B / 168B 1.4s done
+2026-01-15T05:52:09.9378768Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 6.12MB / 118.65MB 1.5s
+2026-01-15T05:52:10.0393447Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 16.78MB / 118.65MB 1.6s
+2026-01-15T05:52:10.2364709Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 55.57MB / 118.65MB 1.8s
+2026-01-15T05:52:10.4365137Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 112.20MB / 118.65MB 2.0s
+2026-01-15T05:52:10.6359740Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 118.65MB / 118.65MB 2.2s
+2026-01-15T05:52:10.8874722Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 197.07MB / 197.07MB 2.4s done
+2026-01-15T05:52:11.4874015Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 118.65MB / 118.65MB 2.9s done
+2026-01-15T05:52:12.7595548Z #5 extracting sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 3.9s done
+2026-01-15T05:52:12.8948144Z #5 extracting sha256:2377065f3b700cf1b5e391d26c572c8b91892dd44acd75deebdab5e403b23175 0.1s
+2026-01-15T05:52:13.3480822Z #5 extracting sha256:2377065f3b700cf1b5e391d26c572c8b91892dd44acd75deebdab5e403b23175 0.4s done
+2026-01-15T05:52:13.9297942Z #5 extracting sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230
+2026-01-15T05:52:16.1726984Z #5 extracting sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 2.1s done
+2026-01-15T05:52:16.6882984Z #5 extracting sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88
+2026-01-15T05:52:21.7090157Z #5 extracting sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 5.0s
+2026-01-15T05:52:22.0583995Z #5 extracting sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 5.4s done
+2026-01-15T05:52:24.5748746Z #5 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1
+2026-01-15T05:52:24.7307997Z #5 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 done
+2026-01-15T05:52:24.7309249Z #5 extracting sha256:aede74d79976f9d1be608a1286cdb2ca61aad25185440263691db6a0880adadd 0.1s
+2026-01-15T05:52:25.4806397Z #5 extracting sha256:aede74d79976f9d1be608a1286cdb2ca61aad25185440263691db6a0880adadd 0.8s done
+2026-01-15T05:52:25.4810940Z #5 extracting sha256:c279a6399750ee20e802fb2c47da034ccee5eb4f3b89087f32618f10e8af074a
+2026-01-15T05:52:25.7532386Z #5 extracting sha256:c279a6399750ee20e802fb2c47da034ccee5eb4f3b89087f32618f10e8af074a 0.1s done
+2026-01-15T05:52:25.7536102Z #5 extracting sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 0.1s
+2026-01-15T05:52:26.9223078Z #5 extracting sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 1.1s done
+2026-01-15T05:52:27.4864297Z #5 extracting sha256:351447e6e3829fac25a761f87d07dc5bfc289f38908901d05fa53aaab54dbdcd
+2026-01-15T05:52:27.6105743Z #5 extracting sha256:351447e6e3829fac25a761f87d07dc5bfc289f38908901d05fa53aaab54dbdcd done
+2026-01-15T05:52:27.6107022Z #5 extracting sha256:eec8099d3f58ba87e25216a07db18b5a0de40b6921ee61ea8ab9b4c29b53a12f 0.1s done
+2026-01-15T05:52:27.6108140Z #5 extracting sha256:cddc70a1cccef26d55fcf9242759c41404c305acea0b4c3a30961c99846a0a55 0.0s done
+2026-01-15T05:52:27.7318394Z #5 extracting sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 0.1s
+2026-01-15T05:52:28.2302495Z #5 extracting sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 0.5s done
+2026-01-15T05:52:28.2303815Z #5 extracting sha256:4a1fde1690fe113870084a3224c66554fc9cbd2310abb9593b0244ec21f4b76d
+2026-01-15T05:52:28.3845072Z #5 extracting sha256:4a1fde1690fe113870084a3224c66554fc9cbd2310abb9593b0244ec21f4b76d done
+2026-01-15T05:52:28.3846132Z #5 extracting sha256:8023cb51985fccd3faa4be6340cdc75b72240277850569aa974767dda5176159 done
+2026-01-15T05:52:28.3851460Z #5 extracting sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 0.1s
+2026-01-15T05:52:32.0696244Z #5 extracting sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 3.6s done
+2026-01-15T05:52:33.3885628Z #5 DONE 25.0s
+2026-01-15T05:52:33.5713704Z 
+2026-01-15T05:52:33.5714162Z #6 [2/2] COPY entrypoint.sh /entrypoint.sh
+2026-01-15T05:52:33.5715087Z #6 DONE 0.0s
+2026-01-15T05:52:33.5715275Z 
+2026-01-15T05:52:33.5715910Z #7 exporting to image
+2026-01-15T05:52:33.5717974Z #7 exporting layers
+2026-01-15T05:52:34.6976124Z #7 exporting layers 1.3s done
+2026-01-15T05:52:34.7249766Z #7 writing image sha256:76df2d54848c56c33dc6fc3babda67b16d6e133a88e2b322fd9884d0abacca29 done
+2026-01-15T05:52:34.7253272Z #7 naming to docker.io/library/4a52b7:3555bbbdf03e42cc84f7080b12d76dc3 done
+2026-01-15T05:52:34.7254222Z #7 DONE 1.3s
+2026-01-15T05:52:34.7304566Z ##[endgroup]
+2026-01-15T05:52:34.7569484Z ##[group]Run actions/checkout@v3
+2026-01-15T05:52:34.7570026Z with:
+2026-01-15T05:52:34.7570218Z   submodules: true
+2026-01-15T05:52:34.7570408Z   lfs: false
+2026-01-15T05:52:34.7570600Z   repository: Gaurav-Sharma-007/Huddle
+2026-01-15T05:52:34.7570993Z   token: ***
+2026-01-15T05:52:34.7571165Z   ssh-strict: true
+2026-01-15T05:52:34.7571350Z   persist-credentials: true
+2026-01-15T05:52:34.7571557Z   clean: true
+2026-01-15T05:52:34.7571902Z   sparse-checkout-cone-mode: true
+2026-01-15T05:52:34.7572200Z   fetch-depth: 1
+2026-01-15T05:52:34.7572376Z   fetch-tags: false
+2026-01-15T05:52:34.7572561Z   set-safe-directory: true
+2026-01-15T05:52:34.7573054Z ##[endgroup]
+2026-01-15T05:52:34.8471516Z Syncing repository: Gaurav-Sharma-007/Huddle
+2026-01-15T05:52:34.8473599Z ##[group]Getting Git version info
+2026-01-15T05:52:34.8474180Z Working directory is '/home/runner/work/Huddle/Huddle'
+2026-01-15T05:52:34.8475289Z [command]/usr/bin/git version
+2026-01-15T05:52:34.8490193Z git version 2.52.0
+2026-01-15T05:52:34.8518180Z ##[endgroup]
+2026-01-15T05:52:34.8534286Z Temporarily overriding HOME='/home/runner/work/_temp/613f7c34-b103-40e3-a2f5-c10af78c9802' before making global git config changes
+2026-01-15T05:52:34.8536767Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-15T05:52:34.8540226Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Huddle/Huddle
+2026-01-15T05:52:34.8577341Z Deleting the contents of '/home/runner/work/Huddle/Huddle'
+2026-01-15T05:52:34.8581316Z ##[group]Initializing the repository
+2026-01-15T05:52:34.8585524Z [command]/usr/bin/git init /home/runner/work/Huddle/Huddle
+2026-01-15T05:52:34.8671242Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-01-15T05:52:34.8675255Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-01-15T05:52:34.8676215Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-01-15T05:52:34.8676900Z hint: call:
+2026-01-15T05:52:34.8677179Z hint:
+2026-01-15T05:52:34.8677579Z hint: 	git config --global init.defaultBranch <name>
+2026-01-15T05:52:34.8678276Z hint:
+2026-01-15T05:52:34.8678751Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-01-15T05:52:34.8679665Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-01-15T05:52:34.8680346Z hint:
+2026-01-15T05:52:34.8680691Z hint: 	git branch -m <name>
+2026-01-15T05:52:34.8681074Z hint:
+2026-01-15T05:52:34.8681639Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-01-15T05:52:34.8686050Z Initialized empty Git repository in /home/runner/work/Huddle/Huddle/.git/
+2026-01-15T05:52:34.8689268Z [command]/usr/bin/git remote add origin https://github.com/Gaurav-Sharma-007/Huddle
+2026-01-15T05:52:34.8763361Z ##[endgroup]
+2026-01-15T05:52:34.8764591Z ##[group]Disabling automatic garbage collection
+2026-01-15T05:52:34.8767480Z [command]/usr/bin/git config --local gc.auto 0
+2026-01-15T05:52:34.8795945Z ##[endgroup]
+2026-01-15T05:52:34.8796876Z ##[group]Setting up auth
+2026-01-15T05:52:34.8801979Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-15T05:52:34.8831536Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-15T05:52:34.9145960Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-15T05:52:34.9173338Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-15T05:52:34.9405933Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-01-15T05:52:34.9439317Z ##[endgroup]
+2026-01-15T05:52:34.9440392Z ##[group]Fetching the repository
+2026-01-15T05:52:34.9448484Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +f5ffa8e9f826d9f52a7fbe5fd10fbb58edc0166b:refs/remotes/origin/main
+2026-01-15T05:52:35.2960367Z remote: Enumerating objects: 52, done.        
+2026-01-15T05:52:35.2961323Z remote: Counting objects:   1% (1/52)        
+2026-01-15T05:52:35.2966204Z remote: Counting objects:   3% (2/52)        
+2026-01-15T05:52:35.2966745Z remote: Counting objects:   5% (3/52)        
+2026-01-15T05:52:35.2967246Z remote: Counting objects:   7% (4/52)        
+2026-01-15T05:52:35.2967753Z remote: Counting objects:   9% (5/52)        
+2026-01-15T05:52:35.2968242Z remote: Counting objects:  11% (6/52)        
+2026-01-15T05:52:35.2968739Z remote: Counting objects:  13% (7/52)        
+2026-01-15T05:52:35.2969294Z remote: Counting objects:  15% (8/52)        
+2026-01-15T05:52:35.2969806Z remote: Counting objects:  17% (9/52)        
+2026-01-15T05:52:35.2970330Z remote: Counting objects:  19% (10/52)        
+2026-01-15T05:52:35.2970830Z remote: Counting objects:  21% (11/52)        
+2026-01-15T05:52:35.2971349Z remote: Counting objects:  23% (12/52)        
+2026-01-15T05:52:35.2971857Z remote: Counting objects:  25% (13/52)        
+2026-01-15T05:52:35.2972363Z remote: Counting objects:  26% (14/52)        
+2026-01-15T05:52:35.2972877Z remote: Counting objects:  28% (15/52)        
+2026-01-15T05:52:35.2973369Z remote: Counting objects:  30% (16/52)        
+2026-01-15T05:52:35.2990520Z remote: Counting objects:  32% (17/52)        
+2026-01-15T05:52:35.2991080Z remote: Counting objects:  34% (18/52)        
+2026-01-15T05:52:35.2991596Z remote: Counting objects:  36% (19/52)        
+2026-01-15T05:52:35.2992082Z remote: Counting objects:  38% (20/52)        
+2026-01-15T05:52:35.2992567Z remote: Counting objects:  40% (21/52)        
+2026-01-15T05:52:35.2993041Z remote: Counting objects:  42% (22/52)        
+2026-01-15T05:52:35.2993543Z remote: Counting objects:  44% (23/52)        
+2026-01-15T05:52:35.2994027Z remote: Counting objects:  46% (24/52)        
+2026-01-15T05:52:35.2994908Z remote: Counting objects:  48% (25/52)        
+2026-01-15T05:52:35.2996183Z remote: Counting objects:  50% (26/52)        
+2026-01-15T05:52:35.2997058Z remote: Counting objects:  51% (27/52)        
+2026-01-15T05:52:35.2997849Z remote: Counting objects:  53% (28/52)        
+2026-01-15T05:52:35.2998426Z remote: Counting objects:  55% (29/52)        
+2026-01-15T05:52:35.2998928Z remote: Counting objects:  57% (30/52)        
+2026-01-15T05:52:35.2999429Z remote: Counting objects:  59% (31/52)        
+2026-01-15T05:52:35.2999943Z remote: Counting objects:  61% (32/52)        
+2026-01-15T05:52:35.3000427Z remote: Counting objects:  63% (33/52)        
+2026-01-15T05:52:35.3000925Z remote: Counting objects:  65% (34/52)        
+2026-01-15T05:52:35.3001417Z remote: Counting objects:  67% (35/52)        
+2026-01-15T05:52:35.3001914Z remote: Counting objects:  69% (36/52)        
+2026-01-15T05:52:35.3002407Z remote: Counting objects:  71% (37/52)        
+2026-01-15T05:52:35.3002896Z remote: Counting objects:  73% (38/52)        
+2026-01-15T05:52:35.3003395Z remote: Counting objects:  75% (39/52)        
+2026-01-15T05:52:35.3003885Z remote: Counting objects:  76% (40/52)        
+2026-01-15T05:52:35.3004818Z remote: Counting objects:  78% (41/52)        
+2026-01-15T05:52:35.3005358Z remote: Counting objects:  80% (42/52)        
+2026-01-15T05:52:35.3005854Z remote: Counting objects:  82% (43/52)        
+2026-01-15T05:52:35.3006348Z remote: Counting objects:  84% (44/52)        
+2026-01-15T05:52:35.3006865Z remote: Counting objects:  86% (45/52)        
+2026-01-15T05:52:35.3007372Z remote: Counting objects:  88% (46/52)        
+2026-01-15T05:52:35.3007884Z remote: Counting objects:  90% (47/52)        
+2026-01-15T05:52:35.3008404Z remote: Counting objects:  92% (48/52)        
+2026-01-15T05:52:35.3008879Z remote: Counting objects:  94% (49/52)        
+2026-01-15T05:52:35.3009615Z remote: Counting objects:  96% (50/52)        
+2026-01-15T05:52:35.3010123Z remote: Counting objects:  98% (51/52)        
+2026-01-15T05:52:35.3010633Z remote: Counting objects: 100% (52/52)        
+2026-01-15T05:52:35.3011179Z remote: Counting objects: 100% (52/52), done.        
+2026-01-15T05:52:35.3011723Z remote: Compressing objects:   2% (1/45)        
+2026-01-15T05:52:35.3012285Z remote: Compressing objects:   4% (2/45)        
+2026-01-15T05:52:35.3012816Z remote: Compressing objects:   6% (3/45)        
+2026-01-15T05:52:35.3013331Z remote: Compressing objects:   8% (4/45)        
+2026-01-15T05:52:35.3013846Z remote: Compressing objects:  11% (5/45)        
+2026-01-15T05:52:35.3014559Z remote: Compressing objects:  13% (6/45)        
+2026-01-15T05:52:35.3015118Z remote: Compressing objects:  15% (7/45)        
+2026-01-15T05:52:35.3015648Z remote: Compressing objects:  17% (8/45)        
+2026-01-15T05:52:35.3016188Z remote: Compressing objects:  20% (9/45)        
+2026-01-15T05:52:35.3016721Z remote: Compressing objects:  22% (10/45)        
+2026-01-15T05:52:35.3017276Z remote: Compressing objects:  24% (11/45)        
+2026-01-15T05:52:35.3017832Z remote: Compressing objects:  26% (12/45)        
+2026-01-15T05:52:35.3018377Z remote: Compressing objects:  28% (13/45)        
+2026-01-15T05:52:35.3018899Z remote: Compressing objects:  31% (14/45)        
+2026-01-15T05:52:35.3019420Z remote: Compressing objects:  33% (15/45)        
+2026-01-15T05:52:35.3019944Z remote: Compressing objects:  35% (16/45)        
+2026-01-15T05:52:35.3020456Z remote: Compressing objects:  37% (17/45)        
+2026-01-15T05:52:35.3020974Z remote: Compressing objects:  40% (18/45)        
+2026-01-15T05:52:35.3021488Z remote: Compressing objects:  42% (19/45)        
+2026-01-15T05:52:35.3022007Z remote: Compressing objects:  44% (20/45)        
+2026-01-15T05:52:35.3022530Z remote: Compressing objects:  46% (21/45)        
+2026-01-15T05:52:35.3023047Z remote: Compressing objects:  48% (22/45)        
+2026-01-15T05:52:35.3023591Z remote: Compressing objects:  51% (23/45)        
+2026-01-15T05:52:35.3024101Z remote: Compressing objects:  53% (24/45)        
+2026-01-15T05:52:35.3025102Z remote: Compressing objects:  55% (25/45)        
+2026-01-15T05:52:35.3036834Z remote: Compressing objects:  57% (26/45)        
+2026-01-15T05:52:35.3043762Z remote: Compressing objects:  60% (27/45)        
+2026-01-15T05:52:35.3051600Z remote: Compressing objects:  62% (28/45)        
+2026-01-15T05:52:35.3052255Z remote: Compressing objects:  64% (29/45)        
+2026-01-15T05:52:35.3052795Z remote: Compressing objects:  66% (30/45)        
+2026-01-15T05:52:35.3053318Z remote: Compressing objects:  68% (31/45)        
+2026-01-15T05:52:35.3053843Z remote: Compressing objects:  71% (32/45)        
+2026-01-15T05:52:35.3054543Z remote: Compressing objects:  73% (33/45)        
+2026-01-15T05:52:35.3055083Z remote: Compressing objects:  75% (34/45)        
+2026-01-15T05:52:35.3055625Z remote: Compressing objects:  77% (35/45)        
+2026-01-15T05:52:35.3056187Z remote: Compressing objects:  80% (36/45)        
+2026-01-15T05:52:35.3056752Z remote: Compressing objects:  82% (37/45)        
+2026-01-15T05:52:35.3057294Z remote: Compressing objects:  84% (38/45)        
+2026-01-15T05:52:35.3057912Z remote: Compressing objects:  86% (39/45)        
+2026-01-15T05:52:35.3058452Z remote: Compressing objects:  88% (40/45)        
+2026-01-15T05:52:35.3058975Z remote: Compressing objects:  91% (41/45)        
+2026-01-15T05:52:35.3059516Z remote: Compressing objects:  93% (42/45)        
+2026-01-15T05:52:35.3060052Z remote: Compressing objects:  95% (43/45)        
+2026-01-15T05:52:35.3060590Z remote: Compressing objects:  97% (44/45)        
+2026-01-15T05:52:35.3061113Z remote: Compressing objects: 100% (45/45)        
+2026-01-15T05:52:35.3061685Z remote: Compressing objects: 100% (45/45), done.        
+2026-01-15T05:52:35.4077751Z remote: Total 52 (delta 0), reused 38 (delta 0), pack-reused 0 (from 0)        
+2026-01-15T05:52:35.4203803Z From https://github.com/Gaurav-Sharma-007/Huddle
+2026-01-15T05:52:35.4206734Z  * [new ref]         f5ffa8e9f826d9f52a7fbe5fd10fbb58edc0166b -> origin/main
+2026-01-15T05:52:35.4243995Z ##[endgroup]
+2026-01-15T05:52:35.4247116Z ##[group]Determining the checkout info
+2026-01-15T05:52:35.4247769Z ##[endgroup]
+2026-01-15T05:52:35.4248606Z ##[group]Checking out the ref
+2026-01-15T05:52:35.4253118Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-01-15T05:52:35.4344979Z Switched to a new branch 'main'
+2026-01-15T05:52:35.4349399Z branch 'main' set up to track 'origin/main'.
+2026-01-15T05:52:35.4355821Z ##[endgroup]
+2026-01-15T05:52:35.4356412Z ##[group]Setting up auth for fetching submodules
+2026-01-15T05:52:35.4361673Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-01-15T05:52:35.4406472Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2026-01-15T05:52:35.4452644Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-01-15T05:52:35.4516019Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-73487374@github.com:
+2026-01-15T05:52:35.4560127Z ##[endgroup]
+2026-01-15T05:52:35.4563047Z ##[group]Fetching submodules
+2026-01-15T05:52:35.4563694Z [command]/usr/bin/git submodule sync
+2026-01-15T05:52:35.4815343Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1
+2026-01-15T05:52:35.5041180Z [command]/usr/bin/git submodule foreach git config --local gc.auto 0
+2026-01-15T05:52:35.5283162Z ##[endgroup]
+2026-01-15T05:52:35.5283771Z ##[group]Persisting credentials for submodules
+2026-01-15T05:52:35.5291393Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2026-01-15T05:52:35.5518029Z [command]/usr/bin/git submodule foreach sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-01-15T05:52:35.5747129Z [command]/usr/bin/git submodule foreach git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2026-01-15T05:52:35.5973670Z [command]/usr/bin/git submodule foreach git config --local --add 'url.https://github.com/.insteadOf' 'org-73487374@github.com:'
+2026-01-15T05:52:35.6197764Z ##[endgroup]
+2026-01-15T05:52:35.6240040Z [command]/usr/bin/git log -1 --format='%H'
+2026-01-15T05:52:35.6261678Z 'f5ffa8e9f826d9f52a7fbe5fd10fbb58edc0166b'
+2026-01-15T05:52:35.6457733Z ##[group]Run Azure/static-web-apps-deploy@v1
+2026-01-15T05:52:35.6458209Z with:
+2026-01-15T05:52:35.6459322Z   azure_static_web_apps_api_token: ***
+2026-01-15T05:52:35.6459924Z   repo_token: ***
+2026-01-15T05:52:35.6460214Z   action: upload
+2026-01-15T05:52:35.6529954Z   app_location: /
+2026-01-15T05:52:35.6530351Z   output_location: build
+2026-01-15T05:52:35.6530782Z ##[endgroup]
+2026-01-15T05:52:35.6630075Z ##[command]/usr/bin/docker run --name a52b73555bbbdf03e42cc84f7080b12d76dc3_32b474 --label 4a52b7 --workdir /github/workspace --rm -e "INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN" -e "INPUT_REPO_TOKEN" -e "INPUT_ACTION" -e "INPUT_APP_LOCATION" -e "INPUT_API_LOCATION" -e "INPUT_OUTPUT_LOCATION" -e "INPUT_API_BUILD_COMMAND" -e "INPUT_APP_ARTIFACT_LOCATION" -e "INPUT_APP_BUILD_COMMAND" -e "INPUT_ROUTES_LOCATION" -e "INPUT_SKIP_APP_BUILD" -e "INPUT_CONFIG_FILE_LOCATION" -e "INPUT_SKIP_API_BUILD" -e "INPUT_PRODUCTION_BRANCH" -e "INPUT_DEPLOYMENT_ENVIRONMENT" -e "INPUT_IS_STATIC_EXPORT" -e "INPUT_DATA_API_LOCATION" -e "INPUT_GITHUB_ID_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/Huddle/Huddle":"/github/workspace" 4a52b7:3555bbbdf03e42cc84f7080b12d76dc3
+2026-01-15T05:52:35.9397355Z DeploymentId: c32e10ba-55a4-4db1-9c69-86b899bbbc73
+2026-01-15T05:52:35.9397832Z 
+2026-01-15T05:52:36.0768197Z [37mTry to validate location at: '/github/workspace'.[0m
+2026-01-15T05:52:36.0784729Z [37mApp Directory Location: '/' was found.[0m
+2026-01-15T05:52:36.0789407Z [37mTry to validate location at: '/github/workspace/swa-db-connections'.[0m
+2026-01-15T05:52:36.0792755Z [37mLooking for event info[0m
+2026-01-15T05:52:56.7435066Z [31mThe content server has rejected the request with: BadRequest[0m
+2026-01-15T05:52:56.7437943Z [31mReason: No matching Static Web App was found or the api key was invalid.[0m
+2026-01-15T05:52:56.7719929Z [37m[0m
+2026-01-15T05:52:56.7722164Z [33mFor further information, please visit the Azure Static Web Apps documentation at https://docs.microsoft.com/en-us/azure/static-web-apps/[0m
+2026-01-15T05:52:56.7723912Z [33mIf you believe this behavior is unexpected, please raise a GitHub issue at https://github.com/azure/static-web-apps/issues/[0m
+2026-01-15T05:52:56.7725404Z [33mExiting[0m
+2026-01-15T05:52:56.8710503Z Post job cleanup.
+2026-01-15T05:52:56.9447604Z [command]/usr/bin/git version
+2026-01-15T05:52:56.9486202Z git version 2.52.0
+2026-01-15T05:52:56.9535523Z Temporarily overriding HOME='/home/runner/work/_temp/3f1d52ee-373f-4af7-b371-867f2ebff8cf' before making global git config changes
+2026-01-15T05:52:56.9537743Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-15T05:52:56.9540894Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Huddle/Huddle
+2026-01-15T05:52:56.9574974Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-15T05:52:56.9607672Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-15T05:52:56.9840493Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-15T05:52:56.9862632Z http.https://github.com/.extraheader
+2026-01-15T05:52:56.9876383Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-01-15T05:52:56.9907021Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-15T05:52:57.0248085Z Cleaning up orphan processes

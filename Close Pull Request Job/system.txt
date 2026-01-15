@@ -1,0 +1,4 @@
+2026-01-15T05:35:56.9060000Z Evaluating close_pull_request_job.if
+2026-01-15T05:35:56.9060000Z Evaluating: (success() && (((github.event_name == 'pull_request') && (github.event.action == 'closed'))))
+2026-01-15T05:35:56.9060000Z Expanded: (true && (('push' == 'pull_request') && (github.event.action == 'closed')))
+2026-01-15T05:35:56.9060000Z Result: false

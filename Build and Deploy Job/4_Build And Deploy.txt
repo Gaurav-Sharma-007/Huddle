@@ -1,0 +1,21 @@
+﻿2026-01-15T05:52:35.6457720Z ##[group]Run Azure/static-web-apps-deploy@v1
+2026-01-15T05:52:35.6458205Z with:
+2026-01-15T05:52:35.6459315Z   azure_static_web_apps_api_token: ***
+2026-01-15T05:52:35.6459919Z   repo_token: ***
+2026-01-15T05:52:35.6460211Z   action: upload
+2026-01-15T05:52:35.6529940Z   app_location: /
+2026-01-15T05:52:35.6530344Z   output_location: build
+2026-01-15T05:52:35.6530777Z ##[endgroup]
+2026-01-15T05:52:35.6630014Z ##[command]/usr/bin/docker run --name a52b73555bbbdf03e42cc84f7080b12d76dc3_32b474 --label 4a52b7 --workdir /github/workspace --rm -e "INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN" -e "INPUT_REPO_TOKEN" -e "INPUT_ACTION" -e "INPUT_APP_LOCATION" -e "INPUT_API_LOCATION" -e "INPUT_OUTPUT_LOCATION" -e "INPUT_API_BUILD_COMMAND" -e "INPUT_APP_ARTIFACT_LOCATION" -e "INPUT_APP_BUILD_COMMAND" -e "INPUT_ROUTES_LOCATION" -e "INPUT_SKIP_APP_BUILD" -e "INPUT_CONFIG_FILE_LOCATION" -e "INPUT_SKIP_API_BUILD" -e "INPUT_PRODUCTION_BRANCH" -e "INPUT_DEPLOYMENT_ENVIRONMENT" -e "INPUT_IS_STATIC_EXPORT" -e "INPUT_DATA_API_LOCATION" -e "INPUT_GITHUB_ID_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/Huddle/Huddle":"/github/workspace" 4a52b7:3555bbbdf03e42cc84f7080b12d76dc3
+2026-01-15T05:52:35.9397314Z DeploymentId: c32e10ba-55a4-4db1-9c69-86b899bbbc73
+2026-01-15T05:52:35.9397825Z 
+2026-01-15T05:52:36.0768175Z [37mTry to validate location at: '/github/workspace'.[0m
+2026-01-15T05:52:36.0784711Z [37mApp Directory Location: '/' was found.[0m
+2026-01-15T05:52:36.0789393Z [37mTry to validate location at: '/github/workspace/swa-db-connections'.[0m
+2026-01-15T05:52:36.0792743Z [37mLooking for event info[0m
+2026-01-15T05:52:56.7434992Z [31mThe content server has rejected the request with: BadRequest[0m
+2026-01-15T05:52:56.7437928Z [31mReason: No matching Static Web App was found or the api key was invalid.[0m
+2026-01-15T05:52:56.7719916Z [37m[0m
+2026-01-15T05:52:56.7722149Z [33mFor further information, please visit the Azure Static Web Apps documentation at https://docs.microsoft.com/en-us/azure/static-web-apps/[0m
+2026-01-15T05:52:56.7723902Z [33mIf you believe this behavior is unexpected, please raise a GitHub issue at https://github.com/azure/static-web-apps/issues/[0m
+2026-01-15T05:52:56.7725395Z [33mExiting[0m
