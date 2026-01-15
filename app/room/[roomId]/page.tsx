@@ -1,5 +1,5 @@
 
-import RoomClient from "@/components/room/room-client";
+import JitsiRoomClient from "@/components/room/jitsi-room-client";
 
 export async function generateStaticParams() {
     return [
@@ -13,5 +13,5 @@ export default async function RoomPage({ params }: { params: Promise<{ roomId: s
     // In a real app, getUser() from session
     const mockUsername = "User-" + Math.floor(Math.random() * 1000);
 
-    return <RoomClient room={roomId} username={mockUsername} />;
+    return <JitsiRoomClient room={roomId} username={mockUsername} />;
 }
