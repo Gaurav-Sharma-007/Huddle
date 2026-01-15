@@ -94,17 +94,7 @@ function RoomClientContent({ room, username }: { room: string, username: string 
                     // Play Mode: Custom Layout
                     <div className="flex h-full">
                         <div className="flex-1 flex flex-col">
-                            <div className="flex-1 bg-black relative flex items-center justify-center">
-                                {/* Media Player Placeholder */}
-                                <div className="text-white flex flex-col items-center">
-                                    <h2 className="text-2xl font-bold mb-2">Theater Mode</h2>
-                                    <p className="text-gray-400">Media Player Integration Coming Soon</p>
-                                    <div className="mt-4 flex gap-2">
-                                        <Button variant="secondary">Select Media</Button>
-                                        <SubtitleFinder />
-                                    </div>
-                                </div>
-                            </div>
+                            <PlayModeStage />
                             {/* Participants Bar (Bottom) */}
                             <div className="h-32 bg-background border-t border-border p-2">
                                 <SimpleParticipantBar />
@@ -159,6 +149,47 @@ function SimpleParticipantBar() {
                     className="w-48 h-full aspect-video"
                 />
             ))}
+        </div>
+    )
+}
+
+function PlayModeStage() {
+    // Priority 1: Screen Shares
+    const screenTracks = useTracks([Track.Source.ScreenShare], { onlySubscribed: false });
+
+    // Priority 2: Video Tracks (for fallback)
+    const videoTracks = useTracks([Track.Source.Camera], { onlySubscribed: false });
+
+    // Logic: 
+    // 1. If Screen Share -> Show it (Max Size)
+    // 2. If No Media & Only 1 User (or just 1 video track) -> Show that user
+    // 3. Fallback -> Show Media Placeholder
+
+    const mainTrack = screenTracks[0] || (videoTracks.length === 1 ? videoTracks[0] : null);
+
+    if (mainTrack) {
+        return (
+            <div className="w-full h-full p-2 bg-black flex items-center justify-center">
+                <ParticipantTile
+                    trackRef={mainTrack}
+                    className="w-full h-full max-w-5xl aspect-video object-contain shadow-2xl"
+                    disableSpeakingIndicator={true}
+                />
+            </div>
+        )
+    }
+
+    return (
+        <div className="flex-1 bg-black relative flex items-center justify-center">
+            {/* Media Player Placeholder */}
+            <div className="text-white flex flex-col items-center">
+                <h2 className="text-2xl font-bold mb-2">Theater Mode</h2>
+                <p className="text-gray-400">Media Player Integration Coming Soon</p>
+                <div className="mt-4 flex gap-2">
+                    <Button variant="secondary">Select Media</Button>
+                    <SubtitleFinder />
+                </div>
+            </div>
         </div>
     )
 }
