@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Huddle | Connect. Stream. Engage.",
   description: "The ultimate platform for seamless video conferencing and high-definition social streaming.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
