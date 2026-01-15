@@ -86,7 +86,7 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground antialiased;
+  html, body {
+    @apply bg-background text-foreground antialiased overflow-hidden h-full w-full overscroll-none;
   }
 }

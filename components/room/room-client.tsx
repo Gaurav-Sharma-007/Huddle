@@ -11,6 +11,7 @@ import { SubtitleFinder } from "@/components/room/subtitle-finder";
 import { TranscriptSidebar } from "@/components/room/transcript-sidebar";
 import { useTranscription } from "@/hooks/use-transcription";
 import { MeetingSummaryModal } from "@/components/room/meeting-summary-modal";
+import { RoomChat } from "@/components/room/room-chat";
 
 function RoomClientContent({ room, username }: { room: string, username: string }) {
     const [token, setToken] = useState("");
@@ -19,6 +20,7 @@ function RoomClientContent({ room, username }: { room: string, username: string 
     const router = useRouter();
     const { transcript, isListening, startListening, stopListening } = useTranscription(username + " (You)");
     const [showSummary, setShowSummary] = useState(false);
+    const [isChatOpen, setChatOpen] = useState(false);
 
     useEffect(() => {
         // Start listening automatically in work mode
@@ -92,18 +94,46 @@ function RoomClientContent({ room, username }: { room: string, username: string 
                     </div>
                 ) : (
                     // Play Mode: Custom Layout
-                    <div className="flex h-full">
-                        <div className="flex-1 flex flex-col">
+                    <div className="flex h-full relative overflow-hidden">
+                        <div className="flex-1 flex flex-col min-w-0 transition-all duration-300">
+                            {/* Top Bar / Stage */}
                             <PlayModeStage />
                             {/* Participants Bar (Bottom) */}
-                            <div className="h-32 bg-background border-t border-border p-2">
+                            <div className="h-32 bg-background/80 backdrop-blur-sm border-t border-white/10 p-2 z-10">
                                 <SimpleParticipantBar />
                             </div>
-                            <ControlBar />
+
+                            {/* Custom Control Bar Wrapper to add Chat Toggle */}
+                            <div className="flex items-center justify-center gap-4 py-2 bg-black/90 border-t border-white/10 z-20">
+                                <ControlBar variation="minimal" />
+                                <div className="h-8 w-px bg-white/10 mx-2" />
+                                <Button
+                                    size="icon"
+                                    variant={isChatOpen ? "secondary" : "ghost"}
+                                    onClick={() => setChatOpen(!isChatOpen)}
+                                    className="rounded-full h-10 w-10"
+                                >
+                                    <MessageSquare className="h-5 w-5" />
+                                </Button>
+                            </div>
                         </div>
-                        {/* Chat Sidebar (Right) */}
-                        <div className="w-80 border-l border-border bg-card hidden md:block">
-                            <Chat />
+
+                        {/* Chat Sidebar (Right) - Slide In */}
+                        <div
+                            className={cn(
+                                "border-l border-white/10 bg-black/95 backdrop-blur-xl absolute right-0 top-0 h-full z-30 transition-all duration-300 ease-in-out shadow-2xl",
+                                isChatOpen ? "translate-x-0 w-80 opacity-100" : "translate-x-full w-0 opacity-0 overflow-hidden"
+                            )}
+                        >
+                            <div className="flex items-center justify-between p-4 border-b border-white/10">
+                                <h3 className="font-semibold text-white">Chat</h3>
+                                <Button variant="ghost" size="icon" onClick={() => setChatOpen(false)} className="h-6 w-6 text-white/50 hover:text-white">
+                                    <X className="h-4 w-4" />
+                                </Button>
+                            </div>
+                            <div className="h-[calc(100%-60px)]">
+                                <RoomChat />
+                            </div>
                         </div>
                     </div>
                 )}
@@ -143,8 +173,8 @@ function SimpleParticipantBar() {
         <div className="flex gap-2 h-full overflow-x-auto">
             {tracks.map((track) => (
                 <ParticipantTile
-                    // Use trackSid if available, otherwise fallback to identity + source for uniqueness
-                    key={track.publication?.trackSid || `${track.participant.identity}-${track.source}`}
+                    // Use identity + source for stable keys. TrackSid might change or be undefined initially.
+                    key={`${track.participant.identity}-${track.source}`}
                     trackRef={track}
                     className="w-48 h-full aspect-video"
                 />
@@ -169,7 +199,7 @@ function PlayModeStage() {
 
     if (mainTrack) {
         return (
-            <div className="w-full h-full p-2 bg-black flex items-center justify-center">
+            <div className="w-full flex-1 min-h-0 p-2 bg-black flex items-center justify-center">
                 <ParticipantTile
                     trackRef={mainTrack}
                     className="w-full h-full max-w-5xl aspect-video object-contain shadow-2xl"
@@ -180,7 +210,7 @@ function PlayModeStage() {
     }
 
     return (
-        <div className="flex-1 bg-black relative flex items-center justify-center">
+        <div className="flex-1 min-h-0 bg-black relative flex items-center justify-center">
             {/* Media Player Placeholder */}
             <div className="text-white flex flex-col items-center">
                 <h2 className="text-2xl font-bold mb-2">Theater Mode</h2>
@@ -194,23 +224,39 @@ function PlayModeStage() {
     )
 }
 
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Link as LinkIcon, MessageSquare, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 function RoomInfoOverlay({ room }: { room: string }) {
-    const [copied, setCopied] = useState(false);
+    const [copied, setCopied] = useState<"code" | "link" | null>(null);
 
     const copyLink = () => {
         const url = `${window.location.origin}/room/${room}`;
         navigator.clipboard.writeText(url);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        setCopied("link");
+        setTimeout(() => setCopied(null), 2000);
     };
 
     return (
         <div className="fixed top-4 left-4 z-[50] glass-panel p-2 rounded-lg flex items-center gap-3 shadow-lg border border-white/10 bg-black/40 backdrop-blur-md text-white">
             <div className="flex flex-col">
                 <span className="text-[10px] uppercase text-white/50 font-bold tracking-wider">Room Code</span>
-                <span className="font-mono font-bold text-sm">{room}</span>
+                <div className="flex items-center gap-2">
+                    <span className="font-mono font-bold text-sm">{room}</span>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-5 w-5 text-white/50 hover:text-white"
+                        onClick={() => {
+                            navigator.clipboard.writeText(room);
+                            setCopied("code");
+                            setTimeout(() => setCopied(null), 2000);
+                        }}
+                        title="Copy Room Code"
+                    >
+                        {copied === "code" ? <Check className="h-3 w-3 text-green-400" /> : <Copy className="h-3 w-3" />}
+                    </Button>
+                </div>
             </div>
             <div className="h-8 w-px bg-white/10 mx-1"></div>
             <Button
@@ -219,8 +265,8 @@ function RoomInfoOverlay({ room }: { room: string }) {
                 className="h-8 px-2 text-white hover:bg-white/10 hover:text-white"
                 onClick={copyLink}
             >
-                {copied ? <Check className="h-4 w-4 mr-2 text-green-400" /> : <Copy className="h-4 w-4 mr-2" />}
-                {copied ? "Copied" : "Copy Link"}
+                {copied === "link" ? <Check className="h-4 w-4 mr-2 text-green-400" /> : <LinkIcon className="h-4 w-4 mr-2" />}
+                {copied === "link" ? "Copied" : "Copy Link"}
             </Button>
         </div>
     );
